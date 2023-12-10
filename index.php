@@ -9,7 +9,7 @@
     <?php
         require './Usuario.php';
         $usuario = new Usuario();
-        $msg = $usuario->cadastrar();
+        $msg = $usuario->cadastrar("André","andre@gmail.com", 45);
         echo $msg;
     ?>
 </body>
