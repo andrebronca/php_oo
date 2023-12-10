@@ -20,6 +20,30 @@
             echo "Email: ". $row_usuario['email'] ."<br><hr>"; //sem extract
         }
 
+        require './Cliente.php';
+        $cliente = new Cliente();
+        $cliente->logradouro = "Rua x y";
+        $cliente->bairro = "centro";
+        $msg = $cliente->verEndereco();
+        echo $msg;
+
+        require './ClientePessoaFisica.php';
+        $clientePF = new ClientePessoaFisica();
+        $clientePF->logradouro = "Rua XV de Novembro";
+        $clientePF->bairro = "Centro";
+        $clientePF->nome = "André R. Bronca";
+        $clientePF->cpf = 45635782184;
+        $msg = $clientePF->verInformacaoUsuario();
+        echo $msg;
+
+        require './ClientePessoaJuridica.php';
+        $clientePJ = new ClientePessoaJuridica();
+        $clientePJ->logradouro = "Av. principal";
+        $clientePJ->bairro = "centro";
+        $clientePJ->nomeFantasia = "Economia & Qualidade";
+        $clientePJ->cnpj = 99665544332000188;
+        $msg = $clientePJ->verInformacaoEmpresa();
+        echo $msg;
     ?>
 </body>
 </html>
