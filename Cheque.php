@@ -22,4 +22,7 @@ abstract class Cheque {
     public function converterReal(float $valor): string {
         return number_format($valor, '2', ',', '.');
     }
+
+    //método abstrato
+    abstract function calcularJuro();
 }
