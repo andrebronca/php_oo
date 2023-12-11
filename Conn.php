@@ -1,12 +1,12 @@
 <?php
 
-class Conn{
-    public $host = "localhost";
-    public $user = "root";
-    public $pass = "";
-    public $dbname = "andre";
-    public $port = 3308;
-    public $connect = null;
+abstract class Conn{
+    public string $host = "localhost";
+    public string $user = "root";
+    public string $pass = "";
+    public string $dbname = "andre";
+    public int $port = 3308;
+    public object $connect;
 
     public function conectar(){
         try{
@@ -15,8 +15,8 @@ class Conn{
             //echo "Conexão realizada  com sucesso!";
             return $this->connect;
         } catch(Exception $err){
-            //echo "Debug de conexão: erro: {$err}";
-            echo "Falha na conexão com BD!";
+            //echo "Debug de conexão: erro: ". $err->getMessage();
+            //die("Contacte o suporte"); //die: não continua o processamento
             return false;   //indicando que não tem nada
         }
     }

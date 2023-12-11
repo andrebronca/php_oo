@@ -7,22 +7,16 @@
 </head>
 <body>
     <?php
-        require './Cheque.php';
-        require './ChequeComum.php';
-        require './ChequeEspecial.php';
-
-        //definida a classe Cheque como abstrata, não pode mais ser instanciada
-        //$cheque = new Cheque(999.9, "comum");
-        //$msg = $cheque->verValor();
-        //echo $msg."<hr>";
-
-        $chequeComum = new ChequeComum(1999.99, "C");
-        $msg = $chequeComum->calcularJuro();
-        echo $msg."<hr>";
-
-        $chequeEspecial = new ChequeEspecial(2998.89, "E");
-        $msg = $chequeEspecial->calcularJuro();
-        echo $msg."<hr>";
+        require './Conn.php';
+        require './ListUsers.php';
+        
+        $listUsers = new ListUsers();
+        $lista = $listUsers->list();
+        foreach($lista as $user){
+            extract($user);
+            echo "Id: $id<br>Nome: $nome<br>Email: $email<hr>";
+        }
+        
     ?>
 </body>
 </html>
