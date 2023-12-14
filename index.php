@@ -1,3 +1,7 @@
+<?php
+session_start();
+//não deve ter nada antes de session, nem mesmo comentário
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,11 +10,20 @@
     <title>Classes e Objetos em PHP</title>
 </head>
 <body>
+    <a href="index.php">Listar</a><br>
+    <a href="create.php">Cadastrar</a><br>
+
+    <h2>Listar Usuários</h2>
     <?php
+        //se a variável global estiver setada
+        if(isset($_SESSION['msg'])){
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']); //destruir a variável global depois de exibida
+        }
         require './Conn.php';
-        require './ListUsers.php';
+        require './User.php';
         
-        $listUsers = new ListUsers();
+        $listUsers = new User();
         $lista = $listUsers->list();
         foreach($lista as $user){
             extract($user);

@@ -8,7 +8,7 @@ abstract class Conn{
     public int $port = 3308;
     public object $connect;
 
-    public function conectar(){
+    public function connectDb(){
         try{
             $this->connect = new PDO("mysql:host={$this->host};port={$this->port}".
                 ";dbname={$this->dbname}", $this->user, $this->pass);
