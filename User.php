@@ -17,7 +17,7 @@ class User extends Conn {
 
     public function create(): bool{
         //var_dump($this->formData);
-        $this->conn = $this->getConn();
+        $this->getConn();
         $sql = "INSERT INTO usuarios (nome, email, created) VALUES (:name, :email, NOW())";
         $add_user = $this->conn->prepare($sql);
         $add_user->bindParam(':name', $this->formData['name']);
@@ -32,7 +32,7 @@ class User extends Conn {
 
     public function view(): array {
         //var_dump($this->id);
-        $this->conn = $this->getConn();
+        $this->getConn();
         $sql = "SELECT id, nome, email, created, modified FROM usuarios WHERE id = :id LIMIT 1";
         $user = $this->conn->prepare($sql);
         $user->bindParam(':id', $this->id);
@@ -41,8 +41,24 @@ class User extends Conn {
         return $value;
     }
 
+    public function edit(): bool {
+        //var_dump($this->formData);
+        $this->getConn();
+        $sql = "UPDATE usuarios SET nome = :name, email = :email, modified = NOW() 
+            WHERE id = :id";
+        $user = $this->conn->prepare($sql);
+        $user->bindParam(':name', $this->formData['name']);
+        $user->bindParam(':email', $this->formData['email']);
+        $user->bindParam(':id', $this->formData['id']);
+        $user->execute();
+        if($user->rowCount()){
+            return true;
+        }
+        return false;
+    }
 
-    private function getConn():object{
-        return $this->connectDb();
+
+    private function getConn(){
+        $this->conn = $this->connectDb();
     }
 }

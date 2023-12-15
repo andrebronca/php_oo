@@ -29,6 +29,7 @@ session_start();
             extract($user);
             echo "Id: $id<br>Nome: $nome<br>Email: $email";
             echo "<br><a href='view.php?id=$id'>Visualizar</a><br>";
+            echo "<a href='edit.php?id=$id'>Editar</a><br>";
             echo "<hr>";
         }
         
