@@ -22,7 +22,6 @@
     echo $cursoGraduacao->professor("André R. Bronca");
     echo "<hr>";
 
-    
 ?>
 
 </body>
