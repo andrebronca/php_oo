@@ -1,6 +1,7 @@
 <?php
 
 //classe abstrata
+//demonstração de método final que não pode ser sobrescrito na subclasse
 abstract class Cheque {
     /*
     //formato antigo de codificação em PHP
@@ -19,7 +20,8 @@ abstract class Cheque {
     //formato no PHP 8, código otimizado
     public function __construct(public float $valor, public string $tipo){}
 
-    public function converterReal(float $valor): string {
+    //determinando que esse método não pode ser sobrescrito na subclasse
+    final public function converterReal(float $valor): string {
         return number_format($valor, '2', ',', '.');
     }
 
