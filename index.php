@@ -30,6 +30,7 @@ session_start();
             echo "Id: $id<br>Nome: $nome<br>Email: $email";
             echo "<br><a href='view.php?id=$id'>Visualizar</a><br>";
             echo "<a href='edit.php?id=$id'>Editar</a><br>";
+            echo "<a href='delete.php?id=$id'>Excluir</a><br>";
             echo "<hr>";
         }
         

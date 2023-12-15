@@ -57,6 +57,16 @@ class User extends Conn {
         return false;
     }
 
+    public function delete(): bool{
+        $this->getConn();
+        //LIMIT 1: orientação do professor. Ao meu ver não faz sentido pois id é pk
+        $sql = "DELETE FROM usuarios WHERE id = :id LIMIT 1";
+        $user = $this->conn->prepare($sql);
+        $user->bindParam(':id', $this->id);
+        $value = $user->execute();
+        return $value;
+    }
+
 
     private function getConn(){
         $this->conn = $this->connectDb();
