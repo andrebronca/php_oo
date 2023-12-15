@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classes e Objetos em PHP</title>
+    <title>PHP OO</title>
 </head>
 <body>
     <a href="index.php">Listar</a><br>
@@ -27,7 +27,9 @@ session_start();
         $lista = $listUsers->list();
         foreach($lista as $user){
             extract($user);
-            echo "Id: $id<br>Nome: $nome<br>Email: $email<hr>";
+            echo "Id: $id<br>Nome: $nome<br>Email: $email";
+            echo "<br><a href='view.php?id=$id'>Visualizar</a><br>";
+            echo "<hr>";
         }
         
     ?>
