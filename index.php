@@ -13,6 +13,7 @@
         //namespace deve ser inserido antes dos nomes das classes
         //ConfigController é a classe que será injetada pelo autoload
         $url = new Core\ConfigController();
+        $url->loadPage();
     ?>
 </body>
 </html>

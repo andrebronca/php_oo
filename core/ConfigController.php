@@ -18,22 +18,32 @@ class ConfigController {
             //var_dump($this->urlArray);
             
             //se há valor no array, então seta as posições
-            if (isset($this->urlArray[0]) and isset($this->urlArray[1])){
+            
+            if ((count($this->urlArray) > 1) and (isset($this->urlArray[0])) and (!empty(trim($this->urlArray[1])))){
                 $this->urlController = $this->urlArray[0];
                 $this->urlMetodo = $this->urlArray[1];
-            } else {    //senão exibe uma página de erro
+            } else {    
+                //se não tiver nada na url irá para a página principal
                 $this->urlController = "erro";
-                $this->urlMetodo = "index";    
-            }
-        } else {    //se não tiver nada na url irá para a página principal
+                $this->urlMetodo = "index";
+            } 
+        } else {    //senão exibe uma página de erro
             $this->urlController = "home";
-            $this->urlMetodo = "index";
+            $this->urlMetodo = "index";    
         }
 
-        echo "Controller: {$this->urlController}, method: {$this->urlMetodo}";
+        echo "Controller: {$this->urlController}, method: {$this->urlMetodo} <br>";
         
         
         //http://localhost/ProjPHP/blog/artigos?origem=2&value=2
         //var_dump(filter_input(INPUT_GET,'origem',FILTER_DEFAULT));
+    }
+
+    public function loadPage(){
+        $classLoad = "\\Sts\Controllers\\". ucwords($this->urlController);
+        $classPage = new $classLoad;
+        //var_dump($classPage);
+        echo $classLoad .'<br>';
+        $classPage->index();
     }
 }
