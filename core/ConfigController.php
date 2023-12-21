@@ -32,7 +32,7 @@ class ConfigController {
             $this->urlMetodo = "index";    
         }
 
-        echo "Controller: {$this->urlController}, method: {$this->urlMetodo} <br>";
+        //echo "Controller: {$this->urlController}, method: {$this->urlMetodo} <br>";
         
         
         //http://localhost/ProjPHP/blog/artigos?origem=2&value=2
@@ -43,7 +43,7 @@ class ConfigController {
         $classLoad = "\\Sts\Controllers\\". ucwords($this->urlController);
         $classPage = new $classLoad;
         //var_dump($classPage);
-        echo $classLoad .'<br>';
+        //echo $classLoad .'<br>';
         $classPage->index();
     }
 }
