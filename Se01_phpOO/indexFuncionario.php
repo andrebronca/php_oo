@@ -7,6 +7,13 @@
 </head>
 <body>
     <?php
+    /*
+    Link para documentação
+    https://www.php-fig.org/psr/
+    https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc.md
+    https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc-tags.md
+    utilizar no visual studio code uma extensão para documentar: PHP DocBlocker
+    */
         require './Funcionario.php';
         require './Bonus.php';
 

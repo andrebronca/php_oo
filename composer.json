@@ -1,0 +1,14 @@
+{
+    "description": "PHP OO",
+    "authors": [{
+        "name": "André R. B.",
+        "email": "bronca.andre@gmail.com"
+    }],
+    "autoload": {
+        "psr-4": {
+            "Sts\\": "app/sts",
+            "Core\\": "core"
+        }
+    },
+    "require": {}
+}
